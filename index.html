@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIEGO FixTech - Soporte Técnico Profesional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090d16',
+                        darkCard: '#111827',
+                        darkCardHover: '#1f2937',
+                        accentBlue: '#00b4d8',
+                        accentCyan: '#38bdf8',
+                        accentOrange: '#f97316',
+                        accentOrangeHover: '#ea580c',
+                        navyBlue: '#0f172a',
+                        deepNavy: '#030712'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #090d16; color: #f3f4f6; }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(0, 180, 216, 0.25);
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #00b4d8, #f97316);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased selection:bg-accentBlue selection:text-white">
+
+    <!-- Top Bar / Notification banner -->
+    <div class="bg-gradient-to-r from-navyBlue via-blue-900 to-navyBlue text-xs sm:text-sm py-2 px-4 text-center font-medium border-b border-blue-900/50">
+        <span class="inline-flex items-center gap-2">
+            <i class="fa-solid fa-screwdriver-wrench text-accentOrange animate-pulse"></i> 
+            Servicio Técnico Profesional en Acarigua y sus alredeores | ¡Atención por Cita Agendada!
+            <a href="tel:04245517988" class="text-accentCyan underline font-bold ml-2">📞 0424-5517988</a>
+        </span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 p-0.5 shadow-lg group-hover:scale-105 transition-transform flex items-center justify-center">
+                    <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-gears text-accentCyan text-xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-xl sm:text-2xl font-black tracking-wider text-white flex items-center gap-1.5">
+                        DIEGO <span class="text-accentBlue">Fix</span><span class="text-accentOrange">Tech</span>
+                    </div>
+                    <p class="text-[10px] text-gray-400 tracking-widest font-semibold uppercase">Soporte Técnico Profesional</p>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#inicio" class="hover:text-accentCyan transition-colors">Inicio</a>
+                <a href="#computadoras" class="hover:text-accentCyan transition-colors">PC & Laptops</a>
+                <a href="#electrodomesticos" class="hover:text-accentCyan transition-colors">Electrodomésticos</a>
+                <a href="#celulares" class="hover:text-accentCyan transition-colors">Celulares</a>
+                <a href="#citas" class="hover:text-accentCyan transition-colors">Agendar Cita</a>
+                <a href="#contacto" class="hover:text-accentCyan transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Quick CTA Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/584245517988?text=Hola%20Diego%20FixTech,%20necesito%20soporte%20técnico%20profesional" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-500 text-white px-4 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 shadow-lg shadow-green-900/30 transition-all hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                </a>
+                <a href="tel:04245517988" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 shadow-lg glow-effect transition-all hover:scale-105">
+                    <i class="fa-solid fa-phone"></i> Llamar
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-darkCard border-b border-gray-800 px-6 py-4 space-y-3">
+            <a href="#inicio" class="block text-gray-300 hover:text-accentCyan py-1">Inicio</a>
+            <a href="#computadoras" class="block text-gray-300 hover:text-accentCyan py-1">PC & Laptops</a>
+            <a href="#electrodomesticos" class="block text-gray-300 hover:text-accentCyan py-1">Electrodomésticos</a>
+            <a href="#celulares" class="block text-gray-300 hover:text-accentCyan py-1">Celulares</a>
+            <a href="#citas" class="block text-gray-300 hover:text-accentCyan py-1">Agendar Cita</a>
+            <a href="#contacto" class="block text-gray-300 hover:text-accentCyan py-1">Contacto</a>
+            <div class="pt-2 flex gap-3">
+                <a href="https://wa.me/584245517988" class="flex-1 bg-green-600 text-center py-2 rounded-xl text-white font-medium text-sm"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="tel:04245517988" class="flex-1 bg-blue-600 text-center py-2 rounded-xl text-white font-medium text-sm"><i class="fa-solid fa-phone"></i> Llamar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-darkBg via-navyBlue/20 to-darkBg">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00b4d8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/30 text-accentCyan text-xs font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-accentOrange animate-ping"></span> Soporte Técnico Especializado
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Soluciones Integrales para <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentCyan to-accentBlue">Tus Equipos</span> con Calidad y Confianza
+                </h1>
+                
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                    Especialistas en computadoras, laptops, electrodomésticos y dispositivos móviles (Android & iPhone). Diagnóstico avanzado, reparaciones de placa, software y mantenimiento profesional garantizado.
+                </p>
+
+                <!-- OS badges -->
+                <div class="flex items-center gap-4 py-2">
+                    <div class="flex items-center gap-2 bg-darkCard px-3 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-300">
+                        <i class="fa-brands fa-windows text-accentCyan text-base"></i> Windows
+                    </div>
+                    <div class="flex items-center gap-2 bg-darkCard px-3 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-300">
+                        <i class="fa-brands fa-linux text-yellow-400 text-base"></i> Linux
+                    </div>
+                    <div class="flex items-center gap-2 bg-darkCard px-3 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-300">
+                        <i class="fa-brands fa-apple text-white text-base"></i> macOS / iOS
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#citas" class="bg-gradient-to-r from-accentOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg glow-orange transition-all hover:scale-105 text-center flex items-center justify-center gap-3">
+                        <i class="fa-regular fa-calendar-check text-xl"></i> Agendar una Cita
+                    </a>
+                    <a href="tel:04245517988" class="bg-darkCard hover:bg-darkCardHover border border-gray-700 text-white font-bold px-8 py-4 rounded-xl transition-all hover:border-accentCyan text-center flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone text-accentCyan text-xl"></i> 0424-5517988
+                    </a>
+                </div>
+
+                <div class="pt-4 flex items-center gap-6 text-sm text-gray-400 border-t border-gray-800/80">
+                    <div><strong class="text-white">100%</strong> Garantía</div>
+                    <div>•</div>
+                    <div><strong class="text-white">Atención</strong> Personalizada</div>
+                    <div>•</div>
+                    <div><strong class="text-white">Repuestos</strong> Originales</div>
+                </div>
+            </div>
+
+            <!-- Hero Image / Visual Card -->
+            <div class="relative">
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-accentBlue to-accentOrange rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                <div class="relative bg-darkCard border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                    <div class="flex items-center justify-between pb-6 border-b border-gray-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-accentCyan flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-user-gear"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white">Diego FixTech</h3>
+                                <p class="text-xs text-gray-400">Técnico Profesional Certificado</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-semibold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Disponible
+                        </span>
+                    </div>
+
+                    <div class="py-6 space-y-4">
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-laptop"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm sm:text-base">Sección 1: PC & Laptops</h4>
+                                <p class="text-xs text-gray-400">Instalación OS, Hardware, Mantenimiento y Datos.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-accentOrange flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-blender"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm sm:text-base">Sección 2: Electrodomésticos</h4>
+                                <p class="text-xs text-gray-400">Lavadoras, Placas electrónicas, Secadores, Ventiladores.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-accentCyan flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm sm:text-base">Sección 3: Celulares (Cell Repair)</h4>
+                                <p class="text-xs text-gray-400">Pantallas, Baterías, Pines, Liberación y FRP.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#citas" class="w-full bg-blue-600/20 hover:bg-blue-600/35 border border-blue-500/40 text-accentCyan font-semibold py-3 rounded-xl transition-colors text-center block text-sm">
+                        Agendar Servicio con Cita Previa →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 1: COMPUTADORAS Y LAPTOPS -->
+    <section id="computadoras" class="py-20 bg-darkCard/50 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-accentCyan font-semibold text-xs tracking-widest uppercase px-3 py-1 bg-cyan-950/60 rounded-full border border-cyan-800/40">Sección 01</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Computadoras y Laptops (PC & Laptop)</h2>
+                <p class="text-gray-400 text-base">Soluciones de alto rendimiento para equipos de escritorio y portátiles. Diagnóstico preciso y reparación a nivel de componente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Instalación de Sistemas</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Instalación y optimización profesional de sistemas operativos: <strong>Windows (10/11), Linux, Mac OS</strong>, con drivers y paquetería completa.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-check"></i> Software Original y Estable
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Reparación de Placa Base</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reparación electrónica avanzada en tarjetas madre de PC y laptops, fallas de encendido, cortocircuitos y reemplazo de integrados.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-check"></i> Soldadura SMD y BGA
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Mantenimiento Preventivo</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Limpieza profunda, cambio de pasta térmica de alta gama (silicona/metal líquido), lubricación de ventiladores y optimización de velocidad.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-check"></i> Evita el sobrecalentamiento
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Recuperación de Datos</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Rescate de información perdida, discos duros dañados, particiones eliminadas, memorias USB y respaldos seguros de archivos importantes.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-check"></i> Máxima confidencialidad
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Diagnóstico Computarizado</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Pruebas exhaustivas de memoria RAM, almacenamiento SSD/HDD, fuentes de poder y rendimiento general del equipo.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-check"></i> Informe técnico detallado
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Actualización de Hardware</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Upgrade a unidades de estado sólido SSD NVMe, ampliación de memoria RAM y mejora de componentes para máxima velocidad.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-check"></i> Tu equipo como nuevo
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: REPARACIÓN DE APARATOS ELECTRODOMÉSTICOS -->
+    <section id="electrodomesticos" class="py-20 bg-darkBg border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-accentOrange font-semibold text-xs tracking-widest uppercase px-3 py-1 bg-orange-950/60 rounded-full border border-orange-800/40">Sección 02</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Reparación de Aparatos Electrodomésticos</h2>
+                <p class="text-gray-400 text-base">Expertos en la reparación y mantenimiento de equipos del hogar y cuidado personal con altos estándares de seguridad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentOrange/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Lavadoras & Placas Electrónicas</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reparación de lavadoras automáticas y semiautomáticas. Arreglo de tarjetas electrónicas de control, fallas de centrifugado y fugas.
+                    </p>
+                    <div class="flex items-center text-xs text-accentOrange font-semibold gap-1">
+                        <i class="fa-solid fa-bolt"></i> Reparación de tarjetas y motores
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentOrange/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Secadores de Cabello</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Mantenimiento y reparación de secadores profesionales y domésticos. Cambio de resistencias, motores, interruptores y cableado.
+                    </p>
+                    <div class="flex items-center text-xs text-accentOrange font-semibold gap-1">
+                        <i class="fa-solid fa-bolt"></i> Solución a problemas de calor
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentOrange/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Planchas de Cabello</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reparación de planchas alisadoras. Cambio de termostatos, placas térmicas, cables giratorios y circuitos de temperatura.
+                    </p>
+                    <div class="flex items-center text-xs text-accentOrange font-semibold gap-1">
+                        <i class="fa-solid fa-bolt"></i> Control térmico óptimo
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentOrange/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hammer"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Taladros y Herramientas</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reparación de taladros eléctricos, esmeriles y herramientas de trabajo. Bobinas, carbones, mandriles y selectores de velocidad.
+                    </p>
+                    <div class="flex items-center text-xs text-accentOrange font-semibold gap-1">
+                        <i class="fa-solid fa-bolt"></i> Máxima potencia recuperada
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentOrange/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-fan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Ventiladores</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Mantenimiento de ventiladores de pedestal, techo y mesa. Cambio de bujes, rodamientos, bobinados y selectores de oscilación.
+                    </p>
+                    <div class="flex items-center text-xs text-accentOrange font-semibold gap-1">
+                        <i class="fa-solid fa-bolt"></i> Funcionamiento silencioso
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentOrange/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-toolbox"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Otros Aparatos del Hogar</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Evaluación y reparación de licuadoras, microondas, cafeteras, fuentes de poder y diversos equipos eléctricos y electrónicos.
+                    </p>
+                    <div class="flex items-center text-xs text-accentOrange font-semibold gap-1">
+                        <i class="fa-solid fa-bolt"></i> Diagnóstico especializado
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: REPARACIÓN Y SOFTWARE DE CELULARES -->
+    <section id="celulares" class="py-20 bg-darkCard/50 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-accentCyan font-semibold text-xs tracking-widest uppercase px-3 py-1 bg-blue-950/60 rounded-full border border-blue-800/40">Sección 03</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Cell Repair - Reparación & Software Móvil</h2>
+                <p class="text-gray-400 text-base">Servicio técnico avanzado para teléfonos inteligentes Android y dispositivos iPhone. Soluciones en hardware y desbloqueo de software.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pantallas Rotas</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reemplazo de módulos de pantalla completos (LCD / AMOLED / OLED) para todas las marcas y modelos con repuestos de alta calidad.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> Calidad garantizada
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-battery-half"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Cambio de Baterías</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Sustitución de baterías agotadas o infladas por baterías nuevas con excelente rendimiento y autonomía original.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> 100% de salud de batería
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pin de Carga</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reparación y reemplazo de pines de carga tipo C, micro USB y conectores Lightning para iPhone con problemas de conexión o carga lenta.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> Carga rápida restaurada
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-sim-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Liberación de Operadora</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Liberación y desbloqueo para cualquier línea telefónica nacional e internacional y soporte especializado para <strong>iPhone</strong>.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> Uso con cualquier operador
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-unlock-keyhole"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Eliminación FRP (Google)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Desbloqueo de cuenta Google (FRP) en dispositivos Android bloqueados por restablecimiento de fábrica de forma segura.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> Procedimiento profesional
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-darkCard border border-gray-800 hover:border-accentBlue/50 transition-all rounded-2xl p-6 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Sistema y Daño por Agua</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Reparación de sistemas operativos colgados (bootloop), flasheo, actualización y tratamiento ultrasónico para equipos con daño por líquidos.
+                    </p>
+                    <div class="flex items-center text-xs text-accentCyan font-semibold gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> Rescate de equipos complejos
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CITAS Y RESERVAS -->
+    <section id="citas" class="py-20 bg-darkBg relative overflow-hidden border-t border-gray-800">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center mb-12 space-y-4">
+                <span class="text-accentOrange font-semibold text-xs tracking-widest uppercase px-3 py-1 bg-orange-950/60 rounded-full border border-orange-800/40">Reserva tu espacio</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Agendar Cita con Diego FixTech</h2>
+                <p class="text-gray-400 text-base">Complete el siguiente formulario para programar su atención personalizada o diagnóstico en nuestro taller.</p>
+            </div>
+
+            <div class="bg-darkCard border border-gray-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <form id="appointment-form" class="space-y-6" onsubmit="handleAppointment(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Nombre y Apellido</label>
+                            <input type="text" id="client-name" required placeholder="Ej. Carlos Mendoza" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentCyan transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Número de Teléfono / WhatsApp</label>
+                            <input type="tel" id="client-phone" required placeholder="Ej. 04121234567" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentCyan transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Categoría del Servicio</label>
+                            <select id="service-category" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentCyan transition-colors">
+                                <option value="Computadoras y Laptops">💻 Computadoras y Laptops (PC & Laptop)</option>
+                                <option value="Electrodomésticos">🔌 Electrodomésticos (Lavadora, Secador, etc.)</option>
+                                <option value="Celulares">📱 Reparación de Celulares (Cell Repair)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Fecha Preferida</label>
+                            <input type="date" id="appointment-date" required class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentCyan transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Descripción del Problema / Equipo</label>
+                        <textarea id="service-details" rows="4" required placeholder="Describa brevemente la falla de su equipo (ej. Laptop no enciende, lavadora no bota agua, pantalla de celular rota...)" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentCyan transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-accentOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-bold py-4 rounded-xl shadow-lg glow-orange transition-all text-lg flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-paper-plane"></i> Enviar Cita y Confirmar por WhatsApp
+                    </button>
+                </form>
+
+                <!-- Success notification box (hidden by default) -->
+                <div id="success-msg" class="hidden mt-6 p-6 rounded-2xl bg-green-950/40 border border-green-500/30 text-green-300 text-center space-y-3">
+                    <div class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 mx-auto flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">¡Cita Registrada con Éxito!</h3>
+                    <p class="text-sm">Sus datos han sido procesados. Ahora será redirigido a WhatsApp para finalizar la confirmación directa con Diego FixTech.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACTO, MAPA Y FOOTER -->
+    <footer id="contacto" class="bg-deepNavy border-t border-gray-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <span class="text-xl font-black text-white">DIEGO <span class="text-accentBlue">Fix</span><span class="text-accentOrange">Tech</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Soporte técnico profesional de confianza. Soluciones rápidas y garantizadas en computadoras, electrodomésticos y telefonía móvil.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://wa.me/584245517988" target="_blank" class="w-10 h-10 rounded-xl bg-darkCard hover:bg-green-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="https://t.me/+584245517988" target="_blank" class="w-10 h-10 rounded-xl bg-darkCard hover:bg-sky-500 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-telegram text-lg"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-darkCard hover:bg-pink-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-xl bg-darkCard hover:bg-blue-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Direct Contact -->
+                <div class="space-y-4">
+                    <h3 class="text-white font-bold text-lg">Contacto Directo</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-accentOrange/10 text-accentOrange flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <a href="tel:04245517988" class="hover:text-accentCyan font-bold text-base">0424-5517988</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-accentBlue/10 text-accentBlue flex items-center justify-center flex-shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <a href="https://wa.me/584245517988" target="_blank" class="hover:text-accentCyan">WhatsApp Directo</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-accentCyan flex items-center justify-center flex-shrink-0">
+                                <i class="fa-brands fa-telegram"></i>
+                            </div>
+                            <a href="https://t.me/+584245517988" target="_blank" class="hover:text-accentCyan">Canal de Telegram</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <span>Atención: Por Cita Agendada</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Quick Links -->
+                <div class="space-y-4">
+                    <h3 class="text-white font-bold text-lg">Secciones</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#computadoras" class="hover:text-accentCyan transition-colors">Computadoras & Laptops</a></li>
+                        <li><a href="#electrodomesticos" class="hover:text-accentCyan transition-colors">Electrodomésticos</a></li>
+                        <li><a href="#celulares" class="hover:text-accentCyan transition-colors">Reparación de Celulares</a></li>
+                        <li><a href="#citas" class="hover:text-accentCyan transition-colors">Agendamiento de Citas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Location Map Mockup -->
+                <div class="space-y-4">
+                    <h3 class="text-white font-bold text-lg">Ubicación y Taller</h3>
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 bg-darkCard p-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-accentOrange font-medium">
+                            <i class="fa-solid fa-location-dot"></i> Acarigua, Estado Portuguesa, Venezuela
+                        </div>
+                        <!-- Estilized Map Mockup -->
+                        <div class="w-full h-28 rounded-xl bg-darkBg border border-gray-700 relative overflow-hidden flex items-center justify-center group">
+                            <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:12px_12px]"></div>
+                            <div class="absolute w-3 h-3 bg-accentOrange rounded-full animate-ping"></div>
+                            <div class="absolute w-3 h-3 bg-accentOrange rounded-full"></div>
+                            <span class="relative z-10 text-[11px] font-bold text-white bg-darkCard/90 px-2 py-1 rounded border border-gray-700">Taller Diego FixTech</span>
+                        </div>
+                        <a href="https://maps.google.com/?q=Acarigua+Portuguesa+Venezuela" target="_blank" class="text-xs text-accentCyan hover:underline block text-center pt-1">
+                            Ver en Google Maps ↗
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 DIEGO FixTech. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#inicio" class="hover:text-gray-400">Términos de Servicio</a>
+                    <a href="#contacto" class="hover:text-gray-400">Política de Privacidad</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp & Telegram Widget -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a href="https://t.me/+584245517988" target="_blank" class="w-14 h-14 rounded-full bg-sky-500 hover:bg-sky-400 text-white flex items-center justify-center text-2xl shadow-xl transition-transform hover:scale-110" title="Escribir por Telegram">
+            <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="https://wa.me/584245517988?text=Hola%20Diego,%20quiero%20consultar%20sobre%20un%20servicio%20técnico" target="_blank" class="w-14 h-14 rounded-full bg-green-500 hover:bg-green-400 text-white flex items-center justify-center text-2xl shadow-xl transition-transform hover:scale-110" title="Escribir por WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle appointment form submission
+        function handleAppointment(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const category = document.getElementById('service-category').value;
+            const date = document.getElementById('appointment-date').value;
+            const details = document.getElementById('service-details').value;
+
+            // Show success message box
+            const successBox = document.getElementById('success-msg');
+            successBox.classList.remove('hidden');
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Prepare WhatsApp message
+            const message = `Hola Diego FixTech, he registrado una cita a través de su página web:%0A%0A*Nombre:* ${encodeURIComponent(name)}%0A*Teléfono:* ${encodeURIComponent(phone)}%0A*Servicio:* ${encodeURIComponent(category)}%0A*Fecha:* ${encodeURIComponent(date)}%0A*Detalles:* ${encodeURIComponent(details)}`;
+
+            // Redirect to WhatsApp after 2 seconds
+            setTimeout(() => {
+                window.open(`https://wa.me/584245517988?text=${message}`, '_blank');
+            }, 2000);
+        }
+
+        // Set min date for appointment to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appointment-date').min = today;
+    </script>
+</body>
+</html>
